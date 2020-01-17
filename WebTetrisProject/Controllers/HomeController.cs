@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Models;
+using WebTetris.Data;
 using WebTetris.Models;
 
 namespace WebTetris.Controllers
@@ -12,14 +14,18 @@ namespace WebTetris.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext ctx;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext _ctx)
         {
             _logger = logger;
+            ctx = _ctx;
         }
 
         public IActionResult Index()
-        {
+        {   
+            ctx.Messages.Add(new Message(){ Text = "hello", Date = DateTime.Now });
+            ctx.SaveChanges();
             return View();
         }
 
