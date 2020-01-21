@@ -5,6 +5,14 @@
     <UserSecretsId>aspnet-WebTetris-35E6C952-C48C-4712-9CCF-ABF9577B7FB9</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\MyModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Models\NewFile.txt" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />

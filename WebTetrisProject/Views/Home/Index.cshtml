@@ -6,3 +6,16 @@
     <h1 class="display-4">@ViewBag.Message</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@foreach (var message in ViewBag.Messages)
+{
+    <label>@message.Text</label>
+    <label> - @message.Date</label>
+}
+
+<div>
+        <form asp-action="AddMessage">
+        <label>Write your message:</label>
+        <input class="form-control" name="Text"> </input>
+        </form>
+</div>
